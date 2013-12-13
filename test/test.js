@@ -29,7 +29,7 @@ describe('youAreEl', function () {
       expect(url).to.equal(path);
     });
 
-    it('strips the protocal when there is not host', function () {
+    it('strips the protocol when there is not host', function () {
       var url = youAreEl(http+path).toPath();
       expect(url).to.equal(path);
     });
@@ -47,18 +47,18 @@ describe('youAreEl', function () {
       expect(url).to.equal(fullUrl);
     });
 
-    it ('turns a path into a url with the host/protocal passed in as options', function () {
-      var url = youAreEl(path).toUrl({protocal: https, host: host});
+    it ('turns a path into a url with the host/protocol passed in as options', function () {
+      var url = youAreEl(path).toUrl({protocol: https, host: host});
       expect(url).to.equal(fullHttpsUrl);
     });
 
-    it ('adds a default protocal', function () {
+    it ('adds a default protocol', function () {
       var url = youAreEl(path).toUrl({ host: host});
       expect(url).to.equal(fullUrl);
     });
 
-    it ('ompits the protocal', function () {
-      var url = youAreEl(path).toUrl({ protocal: false, host: host});
+    it ('omits the protocol', function () {
+      var url = youAreEl(path).toUrl({ protocol: false, host: host});
       expect(url).to.equal(host+'/'+path);
     });
   });
