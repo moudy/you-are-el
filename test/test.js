@@ -53,7 +53,7 @@ describe('youAreEl', function () {
     });
 
     it ('adds a default protocol', function () {
-      var url = youAreEl(path).toUrl({ host: host});
+      var url = youAreEl(path).toUrl({host: host});
       expect(url).to.equal(fullUrl);
     });
 
@@ -62,8 +62,13 @@ describe('youAreEl', function () {
       expect(url).to.equal(host+'/'+path);
     });
 
+    it ('does nothign on full url', function () {
+      var url = youAreEl(fullUrl).toUrl();
+      expect(url).to.equal(fullUrl);
+    });
+
     it ('switches the protocol', function () {
-      var url = youAreEl(http+host+'/'+path).toUrl({ protocol: https, host: host});
+      var url = youAreEl(http+host+'/'+path).toUrl({ protocol: https});
       expect(url).to.equal(fullHttpsUrl);
     });
   });

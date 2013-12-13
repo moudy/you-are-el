@@ -29,7 +29,8 @@ function stripLeadingAndTrailigSlashes (val) {
   return val.replace(/^\//, '').replace(/\/$/, '');
 }
 
-function ensureProtocal (val) {
+function ensureProtocal (val, protocol) {
+  if (protocol) return protocol+stripProtocal(val);
   if (val.match(protocolReg)) return val;
   return defaultProtocal+val;
 }
@@ -42,15 +43,18 @@ Value.prototype.toPath = function () {
 };
 
 Value.prototype.toUrl = function (options) {
-  var path = this.toPath();
+  options = options || {};
+  var value = this.value;
   var protocol = '';
   var ret;
   if ('string' === typeof options) {
     options = ensureProtocal(options);
-    ret = options+'/'+path;
+    ret = options+'/'+this.toPath(); //+'/'+path;
+  } else if (!options.host) {
+    ret = ensureProtocal(value, options.protocol);
   } else {
     if (options.protocol !== false) protocol = options.protocol || defaultProtocal;
-    ret = protocol+options.host+'/'+path;
+    ret = protocol+options.host+'/'+this.toPath();
   }
   return ret;
 };
