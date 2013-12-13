@@ -58,13 +58,18 @@ describe('youAreEl', function () {
     });
 
     it ('omits the protocol', function () {
-      var url = youAreEl(path).toUrl({ protocol: false, host: host});
+      var url = youAreEl(path).toUrl({protocol: false, host: host});
       expect(url).to.equal(host+'/'+path);
     });
 
     it ('does nothign on full url', function () {
       var url = youAreEl(fullUrl).toUrl();
       expect(url).to.equal(fullUrl);
+    });
+
+    it ('omits protocol on full url', function () {
+      var url = youAreEl(fullUrl).toUrl({protocol: false });
+      expect(url).to.equal(host+'/'+path);
     });
 
     it ('switches the protocol', function () {

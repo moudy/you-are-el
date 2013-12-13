@@ -11,7 +11,7 @@ module.exports = youAreEl;
 var defaultProtocal = 'http://';
 var protocolReg = /^http(s?):\/\//;
 
-function stripProtocal (val) {
+function stripProtocol (val) {
   return val.replace(protocolReg, '');
 }
 
@@ -30,13 +30,13 @@ function stripLeadingAndTrailigSlashes (val) {
 }
 
 function ensureProtocal (val, protocol) {
-  if (protocol) return protocol+stripProtocal(val);
+  if (protocol) return protocol+stripProtocol(val);
   if (val.match(protocolReg)) return val;
   return defaultProtocal+val;
 }
 
 Value.prototype.toPath = function () {
-  var v = stripProtocal(this.value);
+  var v = stripProtocol(this.value);
   v = stripHost(v);
   v = stripLeadingAndTrailigSlashes(v);
   return v;
@@ -50,6 +50,8 @@ Value.prototype.toUrl = function (options) {
   if ('string' === typeof options) {
     options = ensureProtocal(options);
     ret = options+'/'+this.toPath(); //+'/'+path;
+  } else if (!options.host && options.protocol === false) {
+    ret = stripProtocol(value);
   } else if (!options.host) {
     ret = ensureProtocal(value, options.protocol);
   } else {
