@@ -61,6 +61,11 @@ describe('youAreEl', function () {
       var url = youAreEl(path).toUrl({ protocol: false, host: host});
       expect(url).to.equal(host+'/'+path);
     });
+
+    it ('switches the protocol', function () {
+      var url = youAreEl(http+host+'/'+path).toUrl({ protocol: https, host: host});
+      expect(url).to.equal(fullHttpsUrl);
+    });
   });
 
 });
