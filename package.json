@@ -1,0 +1,18 @@
+{
+  "name": "you-are-el",
+  "version": "0.0.0",
+  "description": "Url helpers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Url"
+  ],
+  "author": "moudy",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "mocha": "~1.15.1",
+    "chai": "~1.8.1"
+  }
+}
