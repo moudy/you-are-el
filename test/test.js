@@ -7,7 +7,7 @@ describe('youAreEl', function () {
 
   var http = 'http://';
   var https = 'https://';
-  var host = 'facebook.com';
+  var host = 'www.facebook.com';
   var path = 'foo/bar';
   var fullUrl = http+host+'/'+path;
   var fullHttpsUrl = https+host+'/'+path;

@@ -16,7 +16,7 @@ function stripProtocol (val) {
 }
 
 function stripHost (val) {
-  var match = val.match(/\.([a-z\.]{2,6})/i);
+  var match = val.match(/\.([a-z\.]{2,6}\/)/i);
   var tld;
   if (match) {
     tld = match[0];
