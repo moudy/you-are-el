@@ -4,14 +4,18 @@
   "description": "Url helpers",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "keywords": [
     "Url"
   ],
   "author": "moudy",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/moudy/you-are-el.git"
+  },
   "license": "BSD-2-Clause",
-  "dependencies": {
+  "devDependencies": {
     "mocha": "~1.15.1",
     "chai": "~1.8.1"
   }
