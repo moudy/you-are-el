@@ -1,6 +1,8 @@
-# Url and path formatting helper for node/browser
+# YouAreEl
 
-Useful for sanitizing user input or output data.
+[![Build Status](https://travis-ci.org/moudy/you-are-el.png)](https://travis-ci.org/moudy/you-are-el)
+
+Url and path formatting helper for node/browser. Useful for sanitizing user input or output data.
 
 ``` javascript
 var youAreEl = require('you-are-el');
